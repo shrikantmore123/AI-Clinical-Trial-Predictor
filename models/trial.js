@@ -1,43 +1,33 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const trialSchema = new Schema(
-  {
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User", 
-      required: true,
-    },
+const trialSchema = new Schema({
     disease: {
-      type: String,
-      required: true,
-      trim: true,
+        type: String,
+        required: true
     },
     drugName: {
-      type: String,
-      required: true,
-      trim: true,
+        type: String,
+        required: true
     },
     phase: {
-      type: String,
-      required: true,
-      enum: ["I", "II", "III"],
+        type: String,
+        required: true
     },
     duration: {
-      type: String,
-      required: true,
-      trim: true,
+        type: String,
+        required: true
     },
     summary: {
-      type: String,
-      required: true,
+        type: String,
+        required: true
     },
-    aiResponse: {
-      type: String,
-      required: true,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     },
-  },
-  { timestamps: true }
-);
+    aiResponse: String
+}, { timestamps: true });
 
 module.exports = mongoose.model("Trial", trialSchema);
