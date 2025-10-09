@@ -489,13 +489,17 @@ footer p.mb-0 {
   }
 }
 
-/* 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-} */
+
+/* flash */
+
+.flash-container {
+  position: fixed;      
+  top: 70px;             
+  right: 20px;          
+  left: 20px;            
+  z-index: 1050;         
+}
+
+.alert {
+    margin-top: 10px;
+}

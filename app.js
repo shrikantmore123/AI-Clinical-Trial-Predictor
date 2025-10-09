@@ -10,7 +10,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-const userRouter = require("./routes/users.js");
+const userRouter = require("./routes/users.js"); 
 
 const port = 3000;
 const MONGO_URL = "mongodb://127.0.0.1:27017/clinical_trial";
@@ -28,7 +28,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true })); // ✅ important
+app.use(express.urlencoded({ extended: true }));
 
 const sessionOptions = {
   secret: "mysupersecretcode",
@@ -63,12 +63,12 @@ app.get("/", (req, res) => {
 
 app.use("/", userRouter);
 
-app.get("/form", (req, res) => {
-  res.render("templates/form");
-});
-
 app.get("/dashboard", (req, res) => {
   res.render("templates/dashboard");
+});
+
+app.get("/form", (req, res) => {
+  res.render("templates/form");
 });
 
 app.all("*", (req, res, next) => {
@@ -77,6 +77,7 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
+  if (!err.message) err.message = "Something went wrong!";
   res.status(statusCode).render("error.ejs", { err });
 });
 

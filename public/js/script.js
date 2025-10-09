@@ -73,3 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200);
     });
 });
+
+
+// Flash
+
+
+setTimeout(() => {
+const alerts = document.querySelectorAll('.alert');
+alerts.forEach(alert => alert.classList.remove('show'));
+}, 4000);
