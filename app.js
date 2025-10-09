@@ -37,6 +37,10 @@ app.get("/form", (req, res) => {
   res.render("templates/form");
 });
 
+app.get("/dashboard", (req, res) => {
+  res.render("templates/dashboard");
+});
+
 app.get("*", (req, res) => {
   res.status(404).send("404 | Page Not Found");
 });

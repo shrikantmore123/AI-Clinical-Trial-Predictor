@@ -2,6 +2,7 @@
 </head>
 <body>
     <!-- Navigation -->
+    <%- include("../includes/navbar.ejs") %>
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand logo" href="#">
@@ -12,36 +13,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">How It Works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Log in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Log in</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-section">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="hero-title">AI Clinical Health Predictor</h1>
-                    <p class="hero-subtitle">
-                        Analyze and predict clinical trial success probabilities using advanced AI for educational and research purposes only.
+                    <h1 class="hero-title">
+                        <span class="animated-title">AI Clinical Health Predictor</span>
+                    </h1>
+                    <p class="hero-subtitle fade-in-up">
+                        Analyze and predict clinical trial success probabilities using advanced AI — 
+                        for educational and research purposes only.
                     </p>
-                    <a href="/signup" class="btn btn-hero">
+                    <a href="/form" class="btn btn-hero fade-in-up delay-1">
                         <i class="fas fa-rocket me-2"></i>Get Started Now
                     </a>
                 </div>
@@ -49,94 +48,53 @@
         </div>
     </section>
 
-    
-
-    <!-- Features Section -->
     <div class="container">
-        <h2 class="section-title text-center">How Our AI Platform Helps Researchers</h2>
-        
+        <h2 class="section-title text-center" id="features-title">How Our AI Platform Helps Researchers</h2>
+      
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-stethoscope"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fa-solid fa-stethoscope"></i></div>
                     <h4 class="feature-title">Smart AI Insights</h4>
                     <p class="feature-description">
-                        Our advanced AI algorithms summarize and explain complex clinical trial data, 
-                        making it easier to understand key findings and implications.
+                        Our advanced AI algorithms summarize and explain complex clinical trial data.
                     </p>
                 </div>
             </div>
             
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-database"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fa-solid fa-database"></i></div>
                     <h4 class="feature-title">Secure Data Tracking</h4>
                     <p class="feature-description">
-                        Store and access your past analyses securely with our MongoDB backend. 
-                        Your data is encrypted and protected with enterprise-grade security.
+                        Store and access your past analyses securely with our MongoDB backend.
                     </p>
                 </div>
             </div>
             
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <h4 class="feature-title">Interactive Dashboard</h4>
                     <p class="feature-description">
-                        Visualize success patterns using interactive charts and graphs. 
-                        Gain valuable research insights with our comprehensive analytics tools.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h4 class="feature-title">Predictive Analytics</h4>
-                    <p class="feature-description">
-                        Leverage machine learning models to predict trial outcomes and 
-                        identify potential success factors before committing resources.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-shield-alt"></i>
-                    </div>
-                    <h4 class="feature-title">Compliance Ready</h4>
-                    <p class="feature-description">
-                        Our platform is designed with healthcare compliance in mind, 
-                        helping you maintain regulatory standards throughout your research.
+                        Visualize success patterns using interactive charts and graphs.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Disclaimer Section -->
     <div class="container">
-        <div class="disclaimer">
+        <div class="disclaimer" data-aos="fade-up">
             <div class="d-flex align-items-center mb-3">
                 <i class="fa-solid fa-triangle-exclamation disclaimer-icon"></i>
                 <h4 class="mb-0">Important Disclaimer</h4>
             </div>
             <p class="mb-0">
-                This application provides educational analysis and predictive modeling for research purposes only. 
-                It does not constitute medical advice, diagnosis, or treatment recommendations. 
-                Always consult qualified healthcare professionals for medical decisions.
+                This application provides educational analysis and predictive modeling for research purposes only.
             </p>
         </div>
     </div>
-    <br><br><br>
+    
     <!-- Footer -->
     <%- include("../includes/footer.ejs") %>
