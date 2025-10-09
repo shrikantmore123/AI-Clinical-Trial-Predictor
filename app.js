@@ -8,13 +8,18 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const User = require("./models/user.js");
-const { isLoggedIn, saveRedirectUrl } = require("./middleware");
-const trialRouter = require("./routes/trials");
+const dotenv = require("dotenv");
 
+const User = require("./models/user.js");
+
+const { isLoggedIn, saveRedirectUrl } = require("./middleware");
+
+const trialRouter = require("./routes/trials");
 const userRouter = require("./routes/users.js"); 
 
 const port = 3000;
+dotenv.config();
+
 const MONGO_URL = "mongodb://127.0.0.1:27017/clinical_trial";
 
 async function main() {
@@ -43,7 +48,7 @@ const sessionOptions = {
 
 app.use(session(sessionOptions));
 app.use(flash());
-
+app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -63,12 +68,11 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", userRouter);
-
 app.use("/", trialRouter);
 
-// Protected pages
-app.get("/dashboard", isLoggedIn, (req, res) => {
-  res.render("templates/dashboard");
+app.get("/dashboard", isLoggedIn, async (req, res) => {
+  const trials = await Trial.find({ user: req.user._id }).sort({ createdAt: -1 });
+  res.render("templates/dashboard", { trials });
 });
 
 app.get("/form", isLoggedIn, (req, res) => {

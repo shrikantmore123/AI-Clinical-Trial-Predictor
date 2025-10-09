@@ -1,0 +1,29 @@
+1.
+
+Disease: Lung Cancer
+Drug Name: Pembrolizumab
+Phase: II
+Duration: 18 months
+Summary / Protocol: Assessing the efficacy and safety of Pembrolizumab in patients with advanced non-small cell lung cancer. Primary endpoints include progression-free survival and overall response rate.
+
+---
+
+2.
+
+Disease: Type 2 Diabetes
+Drug Name: Semaglutide
+Phase: III
+Duration: 24 months
+Summary / Protocol: Evaluating the long-term glycemic control and cardiovascular outcomes of Semaglutide in adults with Type 2 Diabetes. Secondary endpoints include weight reduction and HbA1c levels.
+
+---
+
+3.
+
+Disease: Breast Cancer
+Drug Name: Trastuzumab
+Phase: I
+Duration: 12 months
+Summary / Protocol: Determining the safety, tolerability, and optimal dosing of Trastuzumab in HER2-positive breast cancer patients. Endpoints include dose-limiting toxicities and pharmacokinetics.
+
+---

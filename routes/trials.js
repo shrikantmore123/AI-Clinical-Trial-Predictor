@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { isLoggedIn } = require("../middleware");
 const trialController = require("../controllers/trials");
 
-router.get("/form", isLoggedIn, trialController.renderForm);
+router.get("/form", (req, res) => {
+  res.render("form");
+});
 
-router.post("/submit-trial", isLoggedIn, trialController.createTrial);
+router.post("/submit-trial", trialController.submitTrial);
 
 module.exports = router;
