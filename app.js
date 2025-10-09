@@ -9,19 +9,19 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+const { isLoggedIn, saveRedirectUrl } = require("./middleware");
+const trialRouter = require("./routes/trials");
 
 const userRouter = require("./routes/users.js"); 
 
 const port = 3000;
 const MONGO_URL = "mongodb://127.0.0.1:27017/clinical_trial";
 
-main()
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.log("❌ DB Connection Error:", err));
-
 async function main() {
   await mongoose.connect(MONGO_URL);
+  console.log("✅ Connected to MongoDB");
 }
+main().catch(err => console.log("❌ DB Connection Error:", err));
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -35,8 +35,8 @@ const sessionOptions = {
   resave: false,
   saveUninitialized: true,
   cookie: {
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    expires: Date.now() + 7*24*60*60*1000,
+    maxAge: 7*24*60*60*1000,
     httpOnly: true,
   },
 };
@@ -57,24 +57,30 @@ app.use((req, res, next) => {
   next();
 });
 
+// Routes
 app.get("/", (req, res) => {
   res.render("templates/index");
 });
 
 app.use("/", userRouter);
 
-app.get("/dashboard", (req, res) => {
+app.use("/", trialRouter);
+
+// Protected pages
+app.get("/dashboard", isLoggedIn, (req, res) => {
   res.render("templates/dashboard");
 });
 
-app.get("/form", (req, res) => {
+app.get("/form", isLoggedIn, (req, res) => {
   res.render("templates/form");
 });
 
+// 404 handler
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
 
+// Error handler
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
   if (!err.message) err.message = "Something went wrong!";

@@ -41,7 +41,6 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
             animateCounter();
-            // Trigger disclaimer animation
             document.querySelector('.disclaimer').classList.add('animate');
         }
     });
@@ -76,9 +75,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Flash
-
-
-setTimeout(() => {
-const alerts = document.querySelectorAll('.alert');
-alerts.forEach(alert => alert.classList.remove('show'));
-}, 4000);
+document.addEventListener("DOMContentLoaded", () => {
+    const flashContainer = document.getElementById("flash-container");
+    if (!flashContainer) return;
+    setTimeout(() => {
+        flashContainer.style.transition = "all 0.5s ease";
+        flashContainer.style.height = flashContainer.offsetHeight + "px";
+        flashContainer.style.overflow = "hidden";
+        flashContainer.style.height = "0px";
+        flashContainer.style.marginTop = "0px";
+        flashContainer.style.paddingTop = "0px";
+        flashContainer.style.paddingBottom = "0px";
+        flashContainer.style.opacity = "0";
+    }, 4000);
+});

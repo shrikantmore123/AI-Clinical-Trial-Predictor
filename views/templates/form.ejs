@@ -242,32 +242,32 @@
         </div>
 
         <div class="form-container">
-            <form id="trialForm" action="/dashboard" method="" class="form">
+            <form id="trialForm" action="/submit-trial" method="POST" class="form">
                 <div class="form-group">
                     <label for="disease">
-                        <span class="medical-icon">🦠</span> Disease <span>*</span>
+                        <span class="medical-icon">🦠</span> Disease <span class="required">*</span>
                     </label>
                     <input type="text" id="disease" name="disease" 
                            placeholder="e.g., Lung cancer"
-                           >
+                           required>
                 </div>
 
                 <div class="form-group">
                     <label for="drugName">
-                        <span class="medical-icon">💊</span> Drug Name <span>*</span>
+                        <span class="medical-icon">💊</span> Drug Name <span class="required">*</span>
                     </label>
                     <input type="text" id="drugName" name="drugName"
                            placeholder="e.g., Trastuzumab"
-                           >
+                           required>
                 </div>
 
                 <div class="form-row">
                     <!-- Phase Field -->
                     <div class="form-group">
                         <label for="phase">
-                            <span class="medical-icon">📊</span> Phase <span>*</span>
+                            <span class="medical-icon">📊</span> Phase <span class="required">*</span>
                         </label>
-                        <select id="phase" name="phase" >
+                        <select id="phase" name="phase" required>
                             <option value="" disabled selected>Select phase</option>
                             <option value="I">Phase I</option>
                             <option value="II">Phase II</option>
@@ -277,26 +277,26 @@
 
                     <div class="form-group">
                         <label for="duration">
-                            <span class="medical-icon">⏱</span> Duration <span>*</span>
+                            <span class="medical-icon">⏱</span> Duration <span class="required">*</span>
                         </label>
                         <input type="text" id="duration" name="duration"
                                placeholder="e.g., 24 months"
-                               >
+                               required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="summary">
-                        <span class="medical-icon">📝</span> Summary / Protocol <span>*</span>
+                        <span class="medical-icon">📝</span> Summary / Protocol <span class="required">*</span>
                     </label>
                     <textarea id="summary" name="summary" 
                               placeholder="Trial aims to assess drug efficacy..."
-                              ></textarea>
+                              required></textarea>
                     <p class="help-text">Provide a detailed description of the trial objectives, methodology, and key endpoints.</p>
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <span class="medical-icon">🤖</span> Submit for AI Analysis
+                    <span class="medical-icon" href="/dashboard">🤖</span> Submit for AI Analysis
                 </button>
             </form>
         </div>
@@ -314,6 +314,11 @@
             const duration = document.getElementById('duration').value.trim();
             const summary = document.getElementById('summary').value.trim();
             
+            if (!disease || !drugName || !phase || !duration || !summary) {
+                e.preventDefault();
+                alert('Please fill in all required fields.');
+                return;
+            }
         });
     </script>
 </body>

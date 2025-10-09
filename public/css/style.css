@@ -31,12 +31,20 @@ body {
     overflow: hidden;
 }
 
+/* flash */
+
+#flash-container {
+  transition: all 0.5s ease;
+}
+
+
+/* Form */
 
 .form {
     display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
-    height: 100vh;           /* full viewport height */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 
@@ -277,30 +285,7 @@ body {
     width: 80%;
 }
 
-/* .stats-section {
-    background: white;
-    border-radius: 15px;
-    padding: 3rem;
-    margin: 4rem 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.counter {
-    display: inline-block;
-}
-
-.stat-label {
-    color: #6c757d;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-} */
+/* footer */
 
 footer {
     background: var(--dark);
