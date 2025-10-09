@@ -3,41 +3,22 @@
 <body>
     <!-- Navigation -->
     <%- include("../includes/navbar.ejs") %>
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container">
-            <a class="navbar-brand logo" href="#">
-                <i class="fas fa-brain"></i> AI Clinical Trial Predictor
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Log in</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    
     <section class="hero-section">
         <div class="floating-elements">
             <div class="floating-element"></div>
             <div class="floating-element"></div>
             <div class="floating-element"></div>
         </div>
+        <br>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center">
                     <h1 class="hero-title">
-                        <span class="animated-title">AI Clinical Health Predictor</span>
+                        <span class="animated-title">AI Clinical Trail Predictor</span>
                     </h1>
                     <p class="hero-subtitle fade-in-up">
-                        Analyze and predict clinical trial success probabilities using advanced AI — 
+                        Analyze and predict clinical trial success probabilities using advanced AI
                         for educational and research purposes only.
                     </p>
                     <a href="/form" class="btn btn-hero fade-in-up delay-1">
@@ -96,5 +77,177 @@
         </div>
     </div>
     
+    <!-- ChatBot Widget -->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-icon" id="chat-icon">
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Chatbot_img.png" alt="Bot Logo" style="width:50px; height:50px;">
+        </div>
+
+        <!-- Chat popup initially hidden -->
+        <div class="chat-body" id="chat-body">
+            <div class="chat-header">
+                <h4>HelpBot</h4>
+                <button id="chat-close" style="float:right; background:none; border:none; font-size:18px; cursor:pointer;">✖</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-bubble">
+                        Hello! How can I help you today? Choose a question below:
+                    </div>
+                </div>
+            </div>
+            <div class="quick-questions" id="quick-questions">
+                <button onclick="sendMessage('What is the AI Clinical Trial Predictor?')">What is this project?</button>
+                <button onclick="sendMessage('How does the prediction system work?')">How does it work?</button>
+                <button onclick="sendMessage('What data is used for prediction?')">Which data is used?</button>
+                <button onclick="sendMessage('Is my data safe?')">Is my data safe?</button>
+                <button onclick="sendMessage('Who can use this system?')">Who can use it?</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    /* Chat icon */
+    .chat-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    /* Floating chat popup */
+    .chat-body {
+        position: fixed;
+        bottom: 80px; /* above the icon */
+        right: 20px;
+        width: 300px;
+        max-height: 400px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: white;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+
+    /* Chat header */
+    .chat-header {
+        background-color: #075e54;
+        color: white;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Messages container */
+    .chat-messages {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    /* Quick buttons */
+    .quick-questions {
+        padding: 10px;
+        border-top: 1px solid #ddd;
+    }
+    .quick-questions button {
+        margin: 3px;
+        padding: 5px 10px;
+        border: none;
+        background-color: #075e54;
+        color: white;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    .quick-questions button:hover {
+        background-color: #128c7e;
+    }
+
+    /* Message bubbles */
+    .message {
+        margin-bottom: 10px;
+        display: flex;
+    }
+    .bot-message { justify-content: flex-start; }
+    .user-message { justify-content: flex-end; }
+    .message-bubble {
+        max-width: 70%;
+        padding: 8px 12px;
+        border-radius: 15px;
+    }
+    .bot-message .message-bubble { background-color: #ececec; }
+    .user-message .message-bubble { background-color: #128c7e; color: white; }
+    </style>
+
+    <script>
+    const chatIcon = document.getElementById('chat-icon');
+    const chatBody = document.getElementById('chat-body');
+    const chatClose = document.getElementById('chat-close');
+    const chatMessages = document.getElementById('chat-messages');
+    const qaPairs = {
+        'What is the AI Clinical Trial Predictor?':
+            'The AI Clinical Trial Predictor is a project designed to use machine learning to predict the success rate or outcomes of clinical trials based on input parameters such as trial phase, medical condition, and drug type.',
+
+        'How does the prediction system work?':
+            'It works by analyzing historical trial data using AI algorithms. The model learns patterns and relationships to provide a probability of trial success or classification outcomes.',
+
+        'What data is used for prediction?':
+            'It uses publicly available clinical trial datasets (like those from clinicaltrials.gov) containing information on conditions, interventions, outcomes, and statuses.',
+
+        'Is my data safe?':
+            'Yes, your data is completely secure. The system processes inputs locally or through secure APIs, ensuring privacy and no sharing with third parties.',
+
+        'Who can use this system?':
+            'The platform is designed for researchers, data scientists, and healthcare professionals interested in predicting or analyzing clinical trial outcomes.'
+    };
+
+    // Open chat on icon click
+    chatIcon.addEventListener('click', () => {
+        chatBody.style.display = 'flex';
+        chatIcon.style.display = 'none';
+    });
+
+    // Close chat on button click
+    chatClose.addEventListener('click', () => {
+        chatBody.style.display = 'none';
+        chatIcon.style.display = 'block';
+    });
+
+    // Add message
+    function addMessage(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.textContent = message;
+        
+        messageDiv.appendChild(bubble);
+        chatMessages.appendChild(messageDiv);
+        
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Send message from quick button
+    function sendMessage(question) {
+        addMessage(question, true);
+        document.querySelectorAll('.quick-questions button').forEach(btn => btn.disabled = true);
+
+        setTimeout(() => {
+            const answer = qaPairs[question] || 'Sorry, I do not have information about that.';
+            addMessage(answer);
+            document.querySelectorAll('.quick-questions button').forEach(btn => btn.disabled = false);
+        }, 1000);
+    }
+    </script>
+
+
     <!-- Footer -->
     <%- include("../includes/footer.ejs") %>

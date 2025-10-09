@@ -11,6 +11,7 @@
     --danger: #f94144;
 }
 
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -29,6 +30,15 @@ body {
     position: relative;
     overflow: hidden;
 }
+
+
+.form {
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+    height: 100vh;           /* full viewport height */
+}
+
 
 .hero-section::before {
     content: '';
