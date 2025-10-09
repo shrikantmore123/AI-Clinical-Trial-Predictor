@@ -1,39 +1,142 @@
-<% layout('../layouts/boilerplate.ejs') %>
+<% layout('/layouts/boilerplate.ejs') %>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <i class="fas fa-brain"></i> AI Clinical Trial Predictor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<div class="text-center mt-5">
-  <h1 class="fw-bold mb-3">AI Clinical Health Predictor 🧠💊</h1>
-  <p class="lead text-muted mb-4">
-    Analyze and predict clinical trial success probabilities using AI — for educational and research purposes only.
-  </p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="hero-title">AI Clinical Health Predictor</h1>
+                    <p class="hero-subtitle">
+                        Analyze and predict clinical trial success probabilities using advanced AI for educational and research purposes only.
+                    </p>
+                    <a href="/signup" class="btn btn-hero">
+                        <i class="fas fa-rocket me-2"></i>Get Started Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <a href="/signup" class="btn btn-primary btn-lg px-4 me-2">Get Started</a>
-  <a href="/login" class="btn btn-outline-secondary btn-lg px-4">Login</a>
-</div>
+    
 
-<hr class="my-5" />
+    <!-- Features Section -->
+    <div class="container">
+        <h2 class="section-title text-center">How Our AI Platform Helps Researchers</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h4 class="feature-title">Smart AI Insights</h4>
+                    <p class="feature-description">
+                        Our advanced AI algorithms summarize and explain complex clinical trial data, 
+                        making it easier to understand key findings and implications.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h4 class="feature-title">Secure Data Tracking</h4>
+                    <p class="feature-description">
+                        Store and access your past analyses securely with our MongoDB backend. 
+                        Your data is encrypted and protected with enterprise-grade security.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h4 class="feature-title">Interactive Dashboard</h4>
+                    <p class="feature-description">
+                        Visualize success patterns using interactive charts and graphs. 
+                        Gain valuable research insights with our comprehensive analytics tools.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h4 class="feature-title">Predictive Analytics</h4>
+                    <p class="feature-description">
+                        Leverage machine learning models to predict trial outcomes and 
+                        identify potential success factors before committing resources.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-alt"></i>
+                    </div>
+                    <h4 class="feature-title">Compliance Ready</h4>
+                    <p class="feature-description">
+                        Our platform is designed with healthcare compliance in mind, 
+                        helping you maintain regulatory standards throughout your research.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="row text-center">
-  <div class="col-md-4">
-    <i class="fa-solid fa-stethoscope fa-2x text-primary mb-3"></i>
-    <h4>Smart AI Insights</h4>
-    <p>AI summarizes and explains clinical trial data for better understanding.</p>
-  </div>
-
-  <div class="col-md-4">
-    <i class="fa-solid fa-database fa-2x text-success mb-3"></i>
-    <h4>Data Tracking</h4>
-    <p>Store and access your past analyses securely with MongoDB backend.</p>
-  </div>
-
-  <div class="col-md-4">
-    <i class="fa-solid fa-chart-line fa-2x text-warning mb-3"></i>
-    <h4>Interactive Dashboard</h4>
-    <p>Visualize success patterns using charts and gain research insights.</p>
-  </div>
-</div>
-
-<div class="text-center mt-5">
-  <p class="text-muted small">
-    ⚠️ This app provides educational analysis only — not real medical advice.
-  </p>
-</div>
+    <!-- Disclaimer Section -->
+    <div class="container">
+        <div class="disclaimer">
+            <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-triangle-exclamation disclaimer-icon"></i>
+                <h4 class="mb-0">Important Disclaimer</h4>
+            </div>
+            <p class="mb-0">
+                This application provides educational analysis and predictive modeling for research purposes only. 
+                It does not constitute medical advice, diagnosis, or treatment recommendations. 
+                Always consult qualified healthcare professionals for medical decisions.
+            </p>
+        </div>
+    </div>
+    <br><br><br>
+    <!-- Footer -->
+    <%- include("../includes/footer.ejs") %>

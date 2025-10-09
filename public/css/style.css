@@ -1,0 +1,245 @@
+/* index */
+
+:root {
+    --primary: #4361ee;
+    --secondary: #3f37c9;
+    --accent: #4cc9f0;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #4bb543;
+    --warning: #f9c74f;
+    --danger: #f94144;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: var(--dark);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 5rem 0;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 4rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.btn-hero {
+    background-color: white;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    color: var(--secondary);
+}
+
+.feature-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feature-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.feature-description {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+.disclaimer {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 4rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--warning);
+}
+
+.disclaimer-icon {
+    color: var(--warning);
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.section-title {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 3px;
+}
+
+.navbar-custom {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.logo i {
+    margin-right: 8px;
+}
+
+.stats-section {
+    background: white;
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 4rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+
+footer {
+  background: #0a1f33;
+  color: #f8f9fa;
+  padding: 3rem 0 1rem 0;
+  font-family: "Poppins", sans-serif;
+  border-radius: 15px;
+}
+
+footer h4,
+footer h5 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+footer p {
+  color: #d0d6dc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer ul li a {
+  color: #d0d6dc;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+footer ul li a:hover {
+  color: #00bcd4;
+  transform: translateX(3px);
+}
+
+footer .fab {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer .fab:hover {
+  color: #00bcd4;
+  transform: scale(1.2);
+}
+
+footer hr {
+  opacity: 0.3;
+}
+
+footer p.mb-0 {
+  font-size: 0.9rem;
+  color: #b0b9c4;
+}
+
+
+
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+
+  footer .col-lg-6,
+  footer .col-lg-3 {
+    margin-bottom: 2rem;
+  }
+
+  footer .d-flex {
+    justify-content: center;
+  }
+}
+
+/* 
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+} */

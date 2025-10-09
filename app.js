@@ -33,6 +33,10 @@ app.get("/signup", (req, res) => {
   res.render("users/signup");
 });
 
+app.get("/form", (req, res) => {
+  res.render("templates/form");
+});
+
 app.get("*", (req, res) => {
   res.status(404).send("404 | Page Not Found");
 });
