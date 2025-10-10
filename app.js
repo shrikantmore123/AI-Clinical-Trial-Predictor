@@ -11,7 +11,7 @@ const LocalStrategy = require("passport-local");
 const { isLoggedIn } = require("./middleware");
 
 const User = require("./models/user");
-const Trial = require("./models/trial");
+const Trial = require("./models/Trial");
 
 // Routes
 const userRouter = require("./routes/users");
@@ -75,9 +75,16 @@ app.get("/form", isLoggedIn, (req, res) => {
 });
 
 // Dashboard route
-app.get("/dashboard", isLoggedIn, async (req, res) => {
-    const userTrials = await Trial.find({ author: req.user._id });
-    res.render("templates/dashboard", { userTrials });
+app.get('/dashboard', isLoggedIn, async (req, res) => {
+    try {
+        const trials = await Trial.find({ author: req.user._id })
+                                  .sort({ createdAt: -1 })
+                                  .limit(5); 
+        res.render('templates/dashboard', { trials });  
+    } catch (err) {
+        console.error('Error loading dashboard:', err);
+        res.render('templates/dashboard', { trials: [] });
+    }
 });
 
 app.use("/", userRouter);

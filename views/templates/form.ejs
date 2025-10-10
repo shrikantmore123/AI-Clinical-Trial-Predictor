@@ -232,9 +232,46 @@
                 font-size: 1.5rem;
             }
         }
-    </style>
+        </style>
 </head>
 <body>
+    <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-medical fixed-top">
+            <div class="container">
+                <a class="navbar-brand medical-logo" href="#">
+                    <i class="fas fa-heartbeat"></i> MedPredict AI 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-medical active" href="/">Home</a>
+                        </li>
+                        <% if(!currUser) { %>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-medical" href="/signup">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-medical" href="/login">Log in</a>
+                            </li>
+                        <% } %>
+                        <% if(currUser) { %>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-medical" href="/form">Clinical Analysis</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-medical" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-medical" href="/logout">Logout</a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     <div class="container">
         <div class="header">
             <h1><span class="medical-icon">🧪</span> Trial Submission Form</h1>

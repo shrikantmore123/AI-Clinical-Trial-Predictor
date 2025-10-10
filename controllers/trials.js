@@ -1,5 +1,5 @@
 require("dotenv").config();
-const Trial = require("../models/trial");
+const Trial = require("../models/Trial");
 const OpenAI = require("openai");
 
 const openai = new OpenAI({

@@ -1,19 +1,36 @@
-// Initialize AOS
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100
+// Main application initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar-medical');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Initialize page load animations
+    initializePageAnimations();
 });
 
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar-custom');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// Page animations
+function initializePageAnimations() {
+    const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+    elementsToAnimate.forEach(el => {
+        el.style.opacity = '0';
+        setTimeout(() => {
+            el.style.opacity = '1';
+        }, 200);
+    });
+}
 
 // Counter animation
 function animateCounter() {
@@ -36,42 +53,18 @@ function animateCounter() {
 
 // Intersection Observer for section titles
 const sectionTitle = document.getElementById('features-title');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            animateCounter();
-            document.querySelector('.disclaimer').classList.add('animate');
-        }
-    });
-}, { threshold: 0.5 });
-
 if (sectionTitle) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                animateCounter();
+            }
+        });
+    }, { threshold: 0.5 });
+
     observer.observe(sectionTitle);
 }
-
-// Add hover effect to feature cards
-document.querySelectorAll('.feature-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Page load animations
-document.addEventListener('DOMContentLoaded', function() {
-    // Add fade-in class to elements
-    const elementsToAnimate = document.querySelectorAll('.fade-in-up');
-    elementsToAnimate.forEach(el => {
-        el.style.opacity = '0';
-        setTimeout(() => {
-            el.style.opacity = '1';
-        }, 200);
-    });
-});
 
 
 // Flash

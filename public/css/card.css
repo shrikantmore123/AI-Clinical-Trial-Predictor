@@ -1,0 +1,308 @@
+/* Testimonials Carousel Styles */
+.swiper {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.card-wrapper {
+    max-width: 1100px;
+    margin: 0 60px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-item {
+    height: auto;
+}
+
+.card-link {
+    display: block;
+    background: #fff;
+    padding: 30px;
+    user-select: none;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+
+.card-link:active {
+    cursor: grabbing;
+}
+
+.card-link:hover {
+    border-color: #1a73e8;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a73e8 0%, #7b1fa2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-name {
+    color: #1a237e;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.testimonial-role {
+    color: #546e7a;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.testimonial-quote {
+    color: #546e7a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+    position: relative;
+    padding-left: 25px;
+}
+
+.testimonial-quote:before {
+    content: "\201C";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 2.5rem;
+    color: #1a73e8;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.testimonial-company {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #546e7a;
+}
+
+.testimonial-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    color: #f57c00;
+}
+
+.card-button {
+    height: 45px;
+    width: 45px;
+    color: #1a73e8;
+    background: none;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    float: right;
+    position: relative;
+    z-index: 2;
+}
+
+.card-link:hover .card-button {
+    color: #fff;
+    background: #1a73e8;
+    transform: translateX(5px);
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    position: relative;
+    margin-top: 30px;
+}
+
+.swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #1a73e8;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Swiper Navigation */
+.swiper-slide-button {
+    color: #1a73e8;
+    margin-top: -35px;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.swiper-slide-button:hover {
+    background: #1a73e8;
+    color: white;
+    box-shadow: 0 8px 25px rgba(26, 115, 232, 0.3);
+}
+
+.swiper-slide-button::after {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Medical decorations */
+.medical-decoration {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.dna-helix {
+    top: 10%;
+    right: 5%;
+    font-size: 8rem;
+    color: #1a73e8;
+}
+
+.medical-cross {
+    bottom: 10%;
+    left: 5%;
+    font-size: 6rem;
+    color: #7b1fa2;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #546e7a;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .card-wrapper {
+        margin: 0 40px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 20px 25px;
+    }
+    
+    .swiper-slide-button {
+        display: none;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+    
+    .card-link {
+        padding: 25px;
+    }
+    
+    .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-wrapper {
+        margin: 0 10px 20px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .card-link {
+        padding: 20px;
+    }
+    
+    .testimonial-meta {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+/* Animation for card entrance */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-item {
+    animation: cardEntrance 0.6s ease-out;
+}
+
+/* Ensure proper spacing between sections */
+.testimonials-section {
+    margin: 80px 0;
+    position: relative;
+}
